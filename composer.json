@@ -1,0 +1,12 @@
+{
+  "name": "everetth/SDEV328/petsII",
+  "authors": [
+    {
+      "name": "Everett Hanke",
+      "email": "evreeto@gmail.com"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
