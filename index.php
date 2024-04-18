@@ -33,9 +33,33 @@ $f3->route('GET /', function (){
 $f3->route('GET|POST /orders', function($f3)
 {
     //echo "<h1>DOG</h1>";
+    if ($_SERVER['REQUEST_METHOD'] == "POST")
+    {
+        //check data is valid
+        if (!empty($_POST['petType']) && ($_POST['petColor'] != 'None'))
+        {
+
+            //var_dump($_POST);
+            $f3->set('SESSION.petType', $_POST['petType']);
+            $f3->set('SESSION.petColor', $_POST['petColor']);
+            //send us to page 2
+            $f3->reroute('summary');
+        }
+        else
+        {
+            echo "<h6>Please make sure both color and pet type are filled out</h6>";
+        }
+    }
     $view = new Template();
     echo $view->render('views/orders.html');
 });
 
+$f3->route('GET /summary', function ()
+{
+    //echo "<h1>Submit success</h1>";
+    //var_dump($f3->get('SESSION'));
+    $view = new Template();
+    echo $view->render('views/summary.html');
+});
 //run Fat Free
 $f3->run();
