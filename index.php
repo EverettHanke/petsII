@@ -69,8 +69,9 @@ $f3->route('GET|POST /rock', function($f3)
     //echo "<h1>DOG</h1>";
     if ($_SERVER['REQUEST_METHOD'] == "POST")
     {
-        $f3->get('SESSION.pet')->setAccessories($_POST['accessory[]']);
-
+        //var_dump($_POST);
+        $f3->get('SESSION.pet')->setAccessories($_POST['accessory']);
+        //var_dump($f3->get('SESSION.pet')->getAccessories());
         //send us to page 2
         $f3->reroute('summary');
 

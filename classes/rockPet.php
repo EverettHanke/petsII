@@ -9,7 +9,8 @@ class RockPet extends Pet
      */
     public function getAccessories()
     {
-        return $this->_accessories;
+        //return $this->_accessories;
+        return implode(", ",$this->_accessories);
     }
 
     /**
