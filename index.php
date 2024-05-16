@@ -47,7 +47,7 @@ $f3->route('GET|POST /orders', function($f3)
         }
         else
         {
-            echo "<h6>Please make sure both color and pet type are filled out</h6>";
+            echo "<h6>Please make sure both color and pet.php type are filled out</h6>";
         }
     }
     $view = new Template();
