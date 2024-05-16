@@ -1,0 +1,32 @@
+
+<include href="views/header.html"></include>
+<body>
+<h1>Orders Page</h1>
+<form action="#" method="POST" class="form-horizontal">
+    <div class="form-group">
+        <label for="petType" class="col-sm-4 control-label">What kind of pet would you like to order?</label>
+        <div class="col-sm-4"><input class="form-control" type="text"
+                                     name="petType" id="petType" ></div>
+    </div>
+    <br>
+    <div class="form-group">
+        <div>
+            <input type="checkbox" name="accessory[]" value="googly eyes" id="google">
+            <label for="google">Googly Eyes</label><br>
+            <input type="checkbox" name="accessory[]" value="bow tie" id="bow">
+            <label for="bow">Bow Tie</label><br>
+            <input type="checkbox" name="accessory[]" value="ribbon" id="ribbon">
+            <label for="ribbon">Ribbon</label><br>
+            <input type="checkbox" name="accessory[]" value="hair" id="hair">
+            <label for="hair">Hair</label><br>
+            <input type="checkbox" name="accessory[]" value="mustache" id="mustache">
+            <label for="mustache">mustache</label><br>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary"  type="submit">Next</button>
+        </div>
+
+    </div>
+</form>
+</body>
+</html>

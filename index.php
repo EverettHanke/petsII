@@ -45,6 +45,7 @@ $f3->route('GET|POST /orders', function($f3)
             if($_POST['type'] == "rock")
             {
                 $f3->set('SESSION.pet',new RockPet($_POST['petType'], $_POST['petColor']));
+                $f3->reroute('rock');
             }
             else
             {
@@ -61,6 +62,21 @@ $f3->route('GET|POST /orders', function($f3)
     }
     $view = new Template();
     echo $view->render('views/orders.html');
+});
+
+$f3->route('GET|POST /rock', function($f3)
+{
+    //echo "<h1>DOG</h1>";
+    if ($_SERVER['REQUEST_METHOD'] == "POST")
+    {
+        $f3->get('SESSION.pet')->setAccessories($_POST['accessory[]']);
+
+        //send us to page 2
+        $f3->reroute('summary');
+
+    }
+    $view = new Template();
+    echo $view->render('views/rock.html');
 });
 
 $f3->route('GET /summary', function ()
