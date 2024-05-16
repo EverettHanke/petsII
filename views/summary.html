@@ -2,6 +2,9 @@
 <body>
     <h1>Order Success</h1>
     <h3>You have successfully ordered a {{ @SESSION.petType }} that is the color {{ @SESSION.petColor }}</h3>
+    <check if=" @SESSION.pet instanceOf RockPet">
+        <h4>{{ implode(", ", @SESSION.pet->getAccessories()) }}</h4>
+    </check>
     <a type="button" class="btn btn-primary" href="{{ @BASE }}">Go to HomePage</a>
 </body>
 </html>
