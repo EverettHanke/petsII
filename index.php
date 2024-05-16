@@ -40,8 +40,17 @@ $f3->route('GET|POST /orders', function($f3)
         {
 
             //var_dump($_POST);
-            $f3->set('SESSION.petType', $_POST['petType']);
-            $f3->set('SESSION.petColor', $_POST['petColor']);
+            //$f3->set('SESSION.petType', $_POST['petType']);
+            //$f3->set('SESSION.petColor', $_POST['petColor']);
+            if($_POST['type'] == "rock")
+            {
+                $f3->set('SESSION.pet',new RockPet($_POST['petType'], $_POST['petColor']));
+            }
+            else
+            {
+                $f3->set('SESSION.pet',new StuffedPet($_POST['petType'], $_POST['petColor']));
+            }
+
             //send us to page 2
             $f3->reroute('summary');
         }
