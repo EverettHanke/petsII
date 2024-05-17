@@ -5,6 +5,9 @@
     <check if=" @SESSION.pet instanceOf RockPet">
         <h4>{{ @SESSION.pet->getAccessories() }}</h4>
     </check>
+    <check if=" @SESSION.pet instanceOf StuffedPet">
+        <h4>Size: {{ @SESSION.pet->getSize() }}, Stuffing: {{ @SESSION.pet->getStuffingType() }}, Material: {{ @SESSION.pet->getMaterial() }}</h4>
+    </check>
     <a type="button" class="btn btn-primary" href="{{ @BASE }}">Go to HomePage</a>
 </body>
 </html>

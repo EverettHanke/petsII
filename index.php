@@ -50,6 +50,7 @@ $f3->route('GET|POST /orders', function($f3)
             else
             {
                 $f3->set('SESSION.pet',new StuffedPet($_POST['petType'], $_POST['petColor']));
+                $f3->reroute('stuffed');
             }
 
             //send us to page 2
@@ -87,5 +88,35 @@ $f3->route('GET /summary', function ()
     $view = new Template();
     echo $view->render('views/summary.html');
 });
+
+
+$f3->route('GET|POST /stuffed', function($f3)
+{
+    //echo "<h1>DOG</h1>";
+    if ($_SERVER['REQUEST_METHOD'] == "POST")
+    {
+        //var_dump($_POST);
+        $f3->get('SESSION.pet')->setSize($_POST['size']);
+        $f3->get('SESSION.pet')->setStuffingType($_POST['stuffing']);
+        $f3->get('SESSION.pet')->setMaterial($_POST['fabric']);
+
+        //var_dump($f3->get('SESSION.pet')->getAccessories());
+        //send us to page 2
+        $f3->reroute('summary');
+
+    }
+    $view = new Template();
+    echo $view->render('views/stuffed.html');
+});
+
+$f3->route('GET /summary', function ()
+{
+    //echo "<h1>Submit success</h1>";
+    //var_dump($f3->get('SESSION'));
+    $view = new Template();
+    echo $view->render('views/summary.html');
+});
+
+
 //run Fat Free
 $f3->run();
